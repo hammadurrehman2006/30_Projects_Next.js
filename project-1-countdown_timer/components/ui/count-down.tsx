@@ -34,6 +34,7 @@ export default function Countdown() {
     if (timeLeft > 0) {
       setIsActive(true); // Set the timer as active
       setIsPaused(false); // Unpause the timer if it was paused
+      setDuration("");
     }
   };
 
@@ -53,6 +54,8 @@ export default function Countdown() {
   const handleReset = (): void => {
     setIsActive(false); // Set the timer as inactive
     setIsPaused(false); // Set the timer as not paused
+    setDuration("");
+    setTimeLeft(0);
     setTimeLeft(typeof duration === "number" ? duration : 0); // Reset the timer to the original duration
     // Clear any existing timer
     if (timerRef.current) {
