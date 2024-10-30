@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Muhammad Hammad ur Rehman</a>
+        <a className="btn btn-ghost text-xl sm:text-[20px]">Muhammad Hammad ur Rehman</a>
       </div>
       <div className="flex-none gap-2">
         <div

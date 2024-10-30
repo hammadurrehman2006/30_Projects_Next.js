@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect, ChangeEvent } from "react"; // Import React hooks and types
 import { Input } from "@/components/ui/input"; // Import custom Input component
 import { Button } from "@/components/ui/button"; // Import custom Button component
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Countdown() {
   // State to manage the duration input
   const [duration, setDuration] = useState<number | string>("");
@@ -65,28 +66,27 @@ export default function Countdown() {
 
   // useEffect hook to manage the countdown interval
   useEffect(() => {
-    // If the timer is active and not paused
     if (isActive && !isPaused) {
-      // Set an interval to decrease the time left
       timerRef.current = setInterval(() => {
         setTimeLeft((prevTime) => {
-          // If time is up, clear the interval
-          if (prevTime <= 1) {
+          if (prevTime === 1) { // Only trigger when timeLeft is exactly 1
             clearInterval(timerRef.current!);
+            toast("Time is up !");
             return 0;
           }
-          // Decrease the time left by one second
           return prevTime - 1;
         });
-      }, 1000); // Interval of 1 second
+      }, 1000);
     }
-    // Cleanup function to clear the interval
+  
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
     };
-  }, [isActive, isPaused]); // Dependencies array to rerun the effect
+  }, [isActive, isPaused]);
+   // Dependencies array to rerun the 
+  
 
   // Function to format the time left into mm:ss format
   const formatTime = (time: number): string => {
@@ -108,6 +108,7 @@ export default function Countdown() {
   return (
     // Container div for centering the content
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
+      <ToastContainer className={'text-xl font-bold'} />
       {/* Timer box container */}
       <div className="bg-gray-200 dark:bg-gray-800 shadow-xl shadow-gray-500 rounded-lg p-8 w-full max-w-md">
         {/* Title of the countdown timer */}
