@@ -1,6 +1,5 @@
 "use client"
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
