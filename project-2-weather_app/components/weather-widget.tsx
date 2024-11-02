@@ -54,7 +54,12 @@ export default function WeatherWidget() {
       if (!response.ok) {
         throw new Error("City not found");
       }
+
       const data = await response.json();
+      
+      console.log("City:", data.location.name);
+      console.log("API Key:", process.env.NEXT_PUBLIC_API_KEY);
+      console.log(data)
       const weatherData: WeatherData = {
         temperature: data.current.temp_c, // Get temperature in Celsius
         description: data.current.condition.text, // Get weather description
