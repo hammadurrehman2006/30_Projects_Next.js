@@ -1,7 +1,7 @@
 "use client"
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
-
 const Navbar: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
             onClick={handleDropdownToggle} // Toggle dropdown on click
           >
             <div className="w-10 rounded-full">
-              <img
+              <Image
                 alt="image of M Hammad ur Rehman"
                 src="brght.jpg"
               />
