@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
+
 const Navbar: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -28,9 +29,9 @@ const Navbar: React.FC = () => {
   }, [dropdownOpen]);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-slate-800">
       <div className="flex-1 ">
-        <a className="btn btn-ghost text-white text-xl sm:text-lg">Muhammad Hammad ur Rehman</a>
+        <a className="btn btn-ghost text-xl sm:text-18">Muhammad Hammad ur Rehman</a>
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end relative" ref={dropdownRef}>
@@ -43,7 +44,9 @@ const Navbar: React.FC = () => {
             <div className="w-10 rounded-full">
               <Image
                 alt="image of M Hammad ur Rehman"
-                src="brght.jpg"
+                src="/brght.jpg"
+                width={200}
+                height={200}
               />
             </div>
           </div>
@@ -51,7 +54,7 @@ const Navbar: React.FC = () => {
             <ul
               tabIndex={0}
               role="menu"
-              className="menu menu-sm dropdown-content text-white bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow absolute top-full right-0"
+              className="menu menu-sm dropdown-content text-white bg-slate-500 rounded-box z-[1] mt-3 w-52 p-2 shadow absolute top-full right-0"
             >
               <li>
                 <a
