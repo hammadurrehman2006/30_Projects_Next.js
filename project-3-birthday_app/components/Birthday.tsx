@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
@@ -7,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { FaBirthdayCake} from 'react-icons/fa'
 import { GiBalloons } from 'react-icons/gi'
-import { setTimeout } from 'timers/promises'
 
 type BirthdayProps = {
   name: string

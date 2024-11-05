@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
   }, [dropdownOpen]);
 
   return (
-    <div className="navbar bg-slate-800">
+    <div className="navbar bg-slate-800 text-white">
       <div className="flex-1 ">
         <a className="btn btn-ghost text-xl sm:text-18">Muhammad Hammad ur Rehman</a>
       </div>
