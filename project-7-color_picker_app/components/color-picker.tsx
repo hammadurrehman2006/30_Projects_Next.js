@@ -44,6 +44,10 @@ const ColorPicker = () => {
                                 Copy to Clipboard
                             </Button>
                         </div>
+                        {/* Text displaying that click below to select color */}
+                        <div className="text-gray-500 dark:text-gray-400">
+                            Click below to select a color.
+                        </div>
                         <Input
                             type="color"
                             value={color}
