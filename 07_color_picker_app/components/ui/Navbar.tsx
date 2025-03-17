@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
 
 
   return (
-    <div className="navbar bg-base-100 shadow-sm justify-center">
+    <div className="navbar bg-slate-800 shadow-sm justify-center">
     <div className="flex gap-2 justify-center">
       <div className="flex-1 text-center">
         <a className="btn btn-ghost text-white text-xl">Muhammad Hammad ur Rehman</a>
