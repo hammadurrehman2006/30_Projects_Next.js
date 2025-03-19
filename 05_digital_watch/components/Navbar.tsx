@@ -1,94 +1,42 @@
 "use client"
 import Image from 'next/image';
-import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 
 const Navbar: React.FC = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleDropdownToggle = () => {
-    setDropdownOpen((prev) => !prev);
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setDropdownOpen(false);
-    }
-  };
-
-  // Add and remove event listeners for clicking outside of the dropdown
- useEffect(() => {
-    if (dropdownOpen) {
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [dropdownOpen]);
 
   return (
-    <div className="navbar bg-slate-800">
-      <div className="flex-1 ">
-        <a className="btn btn-ghost md:text-xl text-white text-lg ">Muhammad Hammad ur Rehman</a>
+    <div className="navbar bg-slate-800 shadow-sm justify-center">
+    <div className="flex gap-2 justify-center">
+      <div className="flex-1 text-center">
+        <a className="btn btn-ghost text-white text-xl">Muhammad Hammad ur Rehman</a>
       </div>
-      <div className="flex-none gap-2">
-        <div className="dropdown dropdown-end relative" ref={dropdownRef}>
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-            onClick={handleDropdownToggle} // Toggle dropdown on click
-          >
-            <div className="w-10 rounded-full">
-              <Image
-                alt="image of M Hammad ur Rehman"
-                src="/brght.jpg"
-                width={200}
-                height={200}
-              />
-            </div>
+      <div className="dropdown dropdown-end">
+        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <Image
+              alt="Tailwind CSS Navbar component"
+              src="/brght.jpg"
+              height={150}
+              width={150} />
           </div>
-          {dropdownOpen && (
-            <ul
-              tabIndex={0}
-              role="menu"
-              className="menu menu-sm dropdown-content text-white bg-slate-500 rounded-box z-[1] mt-3 w-52 p-2 shadow absolute top-full right-0"
-            >
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/mhammadurrehman/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="justify-between"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/hammadurrehman2006"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/m.hammadurrehman2006"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
-              </li>
-            </ul>
-          )}
         </div>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content text-white bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li>
+            <Link href={"https://folio-2006.vercel.app"}>
+              Portfolio
+  
+            
+            </Link>
+          </li>
+          <li><Link href={"https://x.com/mhrehman2006"}>Twitter(X)</Link></li>
+          <li><Link href={"https://www.linkedin.com/in/mhammadurrehman/"}>Linkedin</Link></li>
+        </ul>
       </div>
     </div>
+  </div>
   );
 };
 
